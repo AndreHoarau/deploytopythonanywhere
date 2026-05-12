@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fish Tracker</title>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Your CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <h1>My Fish Catch</h1>
+
+    <!-- Create Button -->
+    <button id="showCreateButton">Add Fish</button>
+
+    <!-- Table -->
+    <table id="fishTable" border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Species</th>
+                <th>Location</th>
+                <th>Weight</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <!-- Form -->
+    <div id="fishForm" style="display:none;">
+        <h2 id="formTitle">Add Fish</h2>
+
+        <input type="hidden" name="id">
+
+        Species: <input type="text" name="species"><br>
+        Location: <input type="text" name="location"><br>
+        Weight: <input type="number" name="weight"><br>
+
+        <button id="saveBtn">Save</button>
+        <button id="cancelBtn">Cancel</button>
+    </div>
+
+    <!-- Your JS -->
+    <script src="fish.js"></script>
+
+</body>
+</html>

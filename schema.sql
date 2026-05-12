@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS andre_fish_log;
+CREATE TABLE andre_fish_log (
+    fishId INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    species VARCHAR(30) DEFAULT NULL,
+    sizecm DECIMAL(4,1) DEFAULT NULL,
+    weight DECIMAL(5,2) DEFAULT NULL,
+    location_name VARCHAR(100) DEFAULT NULL,
+    lure VARCHAR(30) DEFAULT NULL,
+    picture_link VARCHAR(255) DEFAULT NULL
+)
