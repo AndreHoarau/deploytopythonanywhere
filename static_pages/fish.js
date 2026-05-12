@@ -15,13 +15,13 @@ function showViewAll() {
 // Add fish to table
 function addFishToTable(fish) {
     let row = `
-        <tr id="${fish.id}">
-            <td>${fish.id}</td>
+        <tr id="${fish.fishId}">
+            <td>${fish.fishId}</td>
             <td>${fish.species}</td>
-            <td>${fish.location}</td>
+            <td>${fish.location_name}</td>
             <td>${fish.weight}</td>
-            <td><button onclick="showUpdate('${fish.id}')">Update</button></td>
-            <td><button onclick="deleteFish('${fish.id}')">Delete</button></td>
+            <td><button onclick="showUpdate('${fish.fishId}')">Update</button></td>
+            <td><button onclick="deleteFish('${fish.fishId}')">Delete</button></td>
         </tr>
     `;
     $("#fishTable tbody").append(row);
@@ -71,8 +71,11 @@ function deleteFish(id) {
 $("#saveBtn").click(function() {
     let fish = {
         species: $("input[name='species']").val(),
-        location: $("input[name='location']").val(),
-        weight: $("input[name='weight']").val()
+        sizecm: parseFloat($("input[name='sizecm']").val()), // Added this
+        weight: parseFloat($("input[name='weight']").val()),
+        location_name: $("input[name='location_name']").val(), // Updated to match HTML name
+        lure: $("input[name='lure']").val(), // Added this
+        picture_link: $("input[name='picture_link']").val() // Added this
     };
 
     createFish(fish);
