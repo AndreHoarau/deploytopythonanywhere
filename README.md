@@ -1,7 +1,9 @@
 # 8640 — Web Services and Applications
 
 **Lecturer:** Andrew Beatty  
-**Student:** Andre  
+**Student Name:** Andre Hoarau  
+**Student ID:** G00439332  
+**Contact:** G00439332@atu.ie
 **Project:** Web-Based Fish Tracker (Full-Stack CRUD Application)
 
 ---

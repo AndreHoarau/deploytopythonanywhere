@@ -2,13 +2,13 @@ import sqlite3
 import dbconfig as cfg
 from os import path
 
-class FishDAO: # Use Capital F for class name convention
+class FishDAO:
     connection=""
     cursor =''
     database=   ''
     
     def __init__(self):
-        # Ensure your dbconfig has 'database' defined
+    
         self.database = cfg.mysql['database']
 
     def getcursor(self): 
@@ -45,7 +45,6 @@ class FishDAO: # Use Capital F for class name convention
 
     def create(self, fish):
         cursor = self.getcursor()
-        # Using ? instead of f-strings is much safer for URLs
         sql = "insert into andre_fish_log (species, sizecm, weight, location_name, lure, picture_link) values (?, ?, ?, ?, ?, ?)"
         values = (
             fish.get('species'), 
@@ -64,7 +63,7 @@ class FishDAO: # Use Capital F for class name convention
 
     def update(self, id, fish):
             cursor = self.getcursor()
-            # Using ? ensures the long Imgur URL doesn't break the SQL string
+
             sql = "update andre_fish_log set species=?, sizecm=?, weight=?, location_name=?, lure=?, picture_link=? where fishId = ?"
             values = (
                 fish.get('species'), 
