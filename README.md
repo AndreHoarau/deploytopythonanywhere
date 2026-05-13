@@ -78,18 +78,19 @@ The SQLite database stores data in the `andre_fish_log` table with the following
 
 ## Setup Instructions
 1. Create and Activate Virtual Environment
-python -m venv venv  
-source venv/bin/activate  # Mac/Linux  
-OR venv\Scripts\activate # Windows
+```python -m venv venv```  
+```source venv/bin/activate```  # Mac/Linux  
+OR ```venv\Scripts\activate``` # Windows
 
 2. Install Dependencies
-pip install -r requirements.txt
+```pip install -r requirements.txt```
 
 3. Initialize Database
-python createschema.py
+```python createschema.py```
 
 4. Start the Application
-python server.py
+```python server.py```  
+
 5.  **View the Application:**  
     Local Development: http://127.0.0.1:5000  
     Production: https://andrehoarau.pythonanywhere.com/
