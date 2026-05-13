@@ -12,42 +12,43 @@
 
 <body>
 
-    <h1>My Fish Catch</h1>
+ <h1>My Fish Catch</h1>
 
-    <!-- Create Button -->
-    <button id="showCreateButton">Add Fish</button>
+<!-- This button triggers the 'Create' mode -->
+<button id="showCreateButton">Add Fish</button>
 
-    <!-- Table -->
-    <table id="fishTable" border="1">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Species</th>
-                <th>Location</th>
-                <th>Weight</th>
-                <th>Update</th>
-                <th>Delete</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+<table id="fishTable" border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Species</th>
+            <th>Location</th>
+            <th>Weight (kg)</th>
+            <th>Size (cm)</th>
+            <th>Lure used</th>
+            <th>Picture Link</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
 
-    <!-- Form -->
-<div id="fishForm" style="display:none;">
-        <h2 id="formTitle">Add Fish</h2>
+<!-- Hidden by default -->
+<div id="fishForm" style="display:none; margin-top: 20px; padding: 15px; border: 1px solid #ccc;">
+    <h2 id="formTitle">Add Fish</h2>
+    <input type="hidden" name="fishId">
 
-        <input type="hidden" name="fishId"> <!-- Match your schema primary key -->
+    Species: <input type="text" name="species"><br>
+    Size (cm): <input type="number" step="0.1" name="sizecm"><br>
+    Weight (kg): <input type="number" step="0.01" name="weight"><br>
+    Location: <input type="text" name="location_name"><br>
+    Lure used: <input type="text" name="lure"><br>
+    Picture Link: <input type="text" name="picture_link"><br>
 
-        Species: <input type="text" name="species"><br>
-        Size (cm): <input type="number" step="0.1" name="sizecm"><br>
-        Weight: <input type="number" step="0.01" name="weight"><br>
-        Location: <input type="text" name="location_name"><br>
-        Lure used: <input type="text" name="lure"><br>
-        Picture Link: <input type="text" name="picture_link"><br>
-
-        <button id="saveBtn">Save</button>
-        <button id="cancelBtn">Cancel</button>
-    </div>
+    <button id="saveBtn">Save</button>
+    <button id="cancelBtn">Cancel</button>
+</div>
 
     <!-- Your JS -->
     <script src="fish.js"></script>
