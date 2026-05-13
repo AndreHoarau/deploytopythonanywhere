@@ -51,6 +51,11 @@ The frontend is a **Single Page Application (SPA)** that interacts with the API 
 *   **State Management:** Uses a local JavaScript array (`allFish`) to mirror the database, ensuring the UI updates instantly.
 *   **Dynamic Form:** A single, responsive form that switches context between "Add" and "Update" modes based on user interaction.
 
+### 4. External Image Integration
+The application supports visual logging by integrating external image hosting services (e.g., Imgur).
+* **Lightweight Persistence:** Stores only the image URL in the database, keeping the SQLite file size small and efficient.
+* **Referrer Policy Optimization:** Implements a no-referrer meta-tag to ensure reliable image rendering across different hosting platforms.
+* **Visual Data Validation:** Provides immediate visual confirmation of catches within the main table, enhancing the user's logbook experience.
 ---
 
 ## Database Schema
@@ -77,7 +82,7 @@ The SQLite database stores data in the `andre_fish_log` table with the following
 ---
 
 ## Setup Instructions
-1. Create and Activate Virtual Environment
+1. Create and Activate Virtual Environment  
 ```python -m venv venv```  
 ```source venv/bin/activate```  # Mac/Linux  
 OR ```venv\Scripts\activate``` # Windows
