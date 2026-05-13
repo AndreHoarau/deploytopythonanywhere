@@ -26,7 +26,7 @@ C:.
 ├── README.md              # Project documentation
 ├── schema.sql             # SQL script for table definitions
 └── server.py              # Flask server and RESTful API routing
-
+```
 ## Features & Functionality
 
 ### 1. Data Access Layer (`fishDAO.py`)
@@ -85,4 +85,3 @@ The SQLite database stores data in the `andre_fish_log` table with the following
 3.  **View the Application:**
     Local Development: http://127.0.0.1:5000
     Production: https://andrehoarau.pythonanywhere.com/
-    
