@@ -1,16 +1,40 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
+    /* Use the new font we added to the head */
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    /* ... rest of your styling */
 }
-
 h1 {
-    color: darkblue;
+    color: #2c3e50;
+    text-align: center;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
 }
 
-table {
-    margin-top: 20px;
-    border-collapse: collapse;
+#fishTable {
     width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#fishTable th {
+    background-color: #3498db;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+#fishTable td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#fishTable tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+#fishTable tr:hover {
+    background-color: #ebf5fb; /* Highlights row on hover */
 }
 
 th, td {
@@ -19,12 +43,103 @@ th, td {
 }
 
 button {
-    margin: 5px;
-    padding: 5px 10px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
 }
 
+
+#showCreateButton {
+    background-color: #27ae60;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.btn-edit {
+    background-color: #f39c12;
+    color: white;
+}
+
+.btn-delete {
+    background-color: #e74c3c;
+    color: white;
+}
+
+button:hover {
+    filter: brightness(90%);
+}
+
+/* Form Layout */
+#fishForm input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Keeps padding from breaking width */
+}
 #fishForm {
     margin-top: 20px;
     padding: 10px;
     border: 1px solid #ccc;
+}
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+/* Styling for the fish image thumbnails */
+.fish-thumb {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+    display: block;
+    margin: 0 auto;
+}
+
+.fish-thumb:hover {
+    transform: scale(1.1); /* Slight zoom when hovering */
+}
+.img-cell {
+    text-align: center;
+    width: 80px;
+}
+/* This creates the placeholder box */
+.no-fish-placeholder {
+    width: 60px;
+    height: 60px;
+    background-color: #eef2f7;
+    border: 2px dashed #bdc3c7;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column; /* Stacks emoji and text */
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+/* This adds the fish emoji */
+.no-fish-placeholder::before {
+    content: '🐟'; 
+    font-size: 20px;
+    display: block;
+    opacity: 0.6;
+}
+
+/* This styles the "No Fish" text */
+.no-fish-placeholder span {
+    font-size: 9px;
+    color: #7f8c8d;
+    font-weight: bold;
+    text-transform: uppercase;
 }

@@ -45,9 +45,17 @@ class FishDAO: # Use Capital F for class name convention
 
     def create(self, fish):
         cursor = self.getcursor()
-        # Cleaned up the formatting and matched the columns to your schema
-        sql = f"insert into andre_fish_log (species, sizecm, weight, location_name, lure, picture_link) values (\"{fish.get('species')}\", {fish.get('sizecm')}, {fish.get('weight')}, \"{fish.get('location_name')}\", \"{fish.get('lure')}\", \"{fish.get('picture_link')}\")"
-        cursor.execute(sql)
+        # Using ? instead of f-strings is much safer for URLs
+        sql = "insert into andre_fish_log (species, sizecm, weight, location_name, lure, picture_link) values (?, ?, ?, ?, ?, ?)"
+        values = (
+            fish.get('species'), 
+            fish.get('sizecm'), 
+            fish.get('weight'), 
+            fish.get('location_name'), 
+            fish.get('lure'), 
+            fish.get('picture_link')
+        )
+        cursor.execute(sql, values)
         self.connection.commit()
         newid = cursor.lastrowid
         fish["fishId"] = newid
@@ -55,12 +63,21 @@ class FishDAO: # Use Capital F for class name convention
         return fish
 
     def update(self, id, fish):
-        cursor = self.getcursor()
-        # Updated table name and column names
-        sql = f"update andre_fish_log set species=\"{fish.get('species')}\", sizecm={fish.get('sizecm')}, weight={fish.get('weight')}, location_name=\"{fish.get('location_name')}\", lure=\"{fish.get('lure')}\", picture_link=\"{fish.get('picture_link')}\" where fishId = {id}"
-        cursor.execute(sql)
-        self.connection.commit()
-        self.closeAll()
+            cursor = self.getcursor()
+            # Using ? ensures the long Imgur URL doesn't break the SQL string
+            sql = "update andre_fish_log set species=?, sizecm=?, weight=?, location_name=?, lure=?, picture_link=? where fishId = ?"
+            values = (
+                fish.get('species'), 
+                fish.get('sizecm'), 
+                fish.get('weight'), 
+                fish.get('location_name'), 
+                fish.get('lure'), 
+                fish.get('picture_link'),
+                id
+            )
+            cursor.execute(sql, values)
+            self.connection.commit()
+            self.closeAll()
         
     def delete(self, id):
         cursor = self.getcursor()
@@ -68,9 +85,7 @@ class FishDAO: # Use Capital F for class name convention
         cursor.execute(sql)
         self.connection.commit()
         self.closeAll()
-
     def convertToDictionary(self, resultLine):
-
         attkeys = ['fishId', 'species', 'sizecm', 'weight', 'location_name', 'lure', 'picture_link']
         fish = {}
         currentkey = 0
@@ -78,5 +93,4 @@ class FishDAO: # Use Capital F for class name convention
             fish[attkeys[currentkey]] = attrib
             currentkey = currentkey + 1 
         return fish
-
 fishDAO = FishDAO()

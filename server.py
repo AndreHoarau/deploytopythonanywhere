@@ -69,7 +69,9 @@ def update(id):
     if 'location_name' in reqJson:
         foundFish['location_name'] = reqJson['location_name']
     if 'lure' in reqJson:
-        foundFish['lure'] = reqJson['lure']        
+        foundFish['lure'] = reqJson['lure']       
+    if 'picture_link' in reqJson:
+        foundFish['picture_link'] = reqJson['picture_link'] 
     fishDAO.update(id,foundFish)
     return jsonify(foundFish)
         

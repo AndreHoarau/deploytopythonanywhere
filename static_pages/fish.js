@@ -41,7 +41,15 @@ function renderFish(fishList) {
                 <td>${fish.weight}</td>
                 <td>${fish.sizecm}</td>
                 <td>${fish.lure}</td>
-                <td>${fish.picture_link}</td>
+                <td class="img-cell">
+                    ${fish.picture_link ? 
+                        `<a href="${fish.picture_link}" target="_blank">
+                            <img src="${fish.picture_link}" alt="Catch" class="fish-thumb">
+                        </a>` : 
+                        `<div class="no-fish-placeholder">
+                            <span>No Fish</span>
+                        </div>`}
+                </td>
                 <td>
                     <button class="btn-edit">Edit</button>
                 </td>
@@ -52,7 +60,6 @@ function renderFish(fishList) {
         $tbody.append(row);
     });
 }
-
 // ------------------------------ UI Management -----------------------------
 
 function showForm(mode = "create") {

@@ -82,6 +82,23 @@ The SQLite database stores data in the `andre_fish_log` table with the following
 2.  **Start the Application:**
     ```bash
     python server.py
-3.  **View the Application:**
-    Local Development: http://127.0.0.1:5000
+3.  **View the Application:**  
+    Local Development: http://127.0.0.1:5000  
     Production: https://andrehoarau.pythonanywhere.com/
+---
+
+## References & Documentation
+This project was developed using the following technologies and documentation:
+
+*   **Flask Documentation:** [https://flask.palletsprojects.com/](https://flask.palletsprojects.com/) - Used for backend routing and API development.
+*   **jQuery API:** [https://api.jquery.com/](https://api.jquery.com/) - Used for DOM manipulation and AJAX requests.
+*   **SQLite3:** [https://www.sqlite.org/docs.html](https://www.sqlite.org/docs.html) - Used for persistent data storage.
+*   **PythonAnywhere:** [https://help.pythonanywhere.com/](https://help.pythonanywhere.com/) - Used for deployment and server hosting.
+*   **W3Schools SQL:** [https://www.w3schools.com/sql/](https://www.w3schools.com/sql/) - Used as a reference for table schema and queries.
+
+## Development Acknowledgment
+This application was developed with the assistance of **Large Language Models (LLMs)** to aid in:
+*   Refining the **Data Access Object (DAO)** structure for robust database interactions.
+*   Debugging complex **jQuery AJAX** state management issues.
+*   Optimizing the **RESTful API** logic for real-time frontend updates.
+*   Structuring project documentation and directory organization.

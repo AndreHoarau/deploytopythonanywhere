@@ -1,54 +1,84 @@
 <!DOCTYPE html>
-<html>
 <head>
-    <title>Fish Tracker</title>
+    <meta charset="UTF-8">
+    <!-- Essential for mobile devices and scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Fixes the Imgur "Access Denied" issue by hiding the referrer -->
+    <meta name="referrer" content="no-referrer">
+    
+    <title>Fish Tracker | Andre's Catch Log</title>
+
+    <!-- Google Fonts: Inter is a clean, modern font that looks great on web apps -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Your CSS (Make sure this is AFTER the Google Fonts link) -->
+    <link rel="stylesheet" href="styles.css">
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-    <!-- Your CSS -->
-    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+    <!-- The Container wraps everything for the modern card look -->
+    <div class="container">
+        
+        <h1>My Fish Catch</h1>
 
- <h1>My Fish Catch</h1>
+        <!-- This button triggers the 'Create' mode -->
+        <button id="showCreateButton">Add Fish</button>
 
-<!-- This button triggers the 'Create' mode -->
-<button id="showCreateButton">Add Fish</button>
+        <table id="fishTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Species</th>
+                    <th>Location</th>
+                    <th>Weight (kg)</th>
+                    <th>Size (cm)</th>
+                    <th>Lure used</th>
+                    <th>Picture Link</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be injected here by fish.js -->
+            </tbody>
+        </table>
 
-<table id="fishTable" border="1">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Species</th>
-            <th>Location</th>
-            <th>Weight (kg)</th>
-            <th>Size (cm)</th>
-            <th>Lure used</th>
-            <th>Picture Link</th>
-            <th>Update</th>
-            <th>Delete</th>
-        </tr>
-    </thead>
-    <tbody></tbody>
-</table>
+        <!-- Hidden by default -->
+        <div id="fishForm" style="display:none;">
+            <h2 id="formTitle">Add Fish</h2>
+            <input type="hidden" name="fishId">
 
-<!-- Hidden by default -->
-<div id="fishForm" style="display:none; margin-top: 20px; padding: 15px; border: 1px solid #ccc;">
-    <h2 id="formTitle">Add Fish</h2>
-    <input type="hidden" name="fishId">
+            <label>Species:</label>
+            <input type="text" name="species" placeholder="e.g. Pike">
 
-    Species: <input type="text" name="species"><br>
-    Size (cm): <input type="number" step="0.1" name="sizecm"><br>
-    Weight (kg): <input type="number" step="0.01" name="weight"><br>
-    Location: <input type="text" name="location_name"><br>
-    Lure used: <input type="text" name="lure"><br>
-    Picture Link: <input type="text" name="picture_link"><br>
+            <label>Size (cm):</label>
+            <input type="number" step="0.1" name="sizecm" placeholder="0.0">
 
-    <button id="saveBtn">Save</button>
-    <button id="cancelBtn">Cancel</button>
-</div>
+            <label>Weight (kg):</label>
+            <input type="number" step="0.01" name="weight" placeholder="0.00">
+
+            <label>Location:</label>
+            <input type="text" name="location_name" placeholder="e.g. Lough Ree">
+
+            <label>Lure used:</label>
+            <input type="text" name="lure" placeholder="e.g. Spinner">
+
+            <label>Picture Link:</label>
+            <input type="text" name="picture_link" placeholder="http://...">
+
+            <div style="margin-top: 10px;">
+                <button id="saveBtn">Save</button>
+                <button id="cancelBtn">Cancel</button>
+            </div>
+        </div>
+
+    </div> <!-- End of Container -->
 
     <!-- Your JS -->
     <script src="fish.js"></script>
