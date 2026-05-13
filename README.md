@@ -17,11 +17,12 @@ This project is a full-stack web application developed as part of the HDIP in Co
 ```text
 C:.
 ├── static_pages/
-│   ├── fish.js            # jQuery/AJAX logic and local state management
-│   ├── index.html         # Main User Interface (SPA)
-│   └── styles.css         # Application styling
-├── .gitignore             # Files to exclude from version control
-├── bigprojectdb           # SQLite database file
+│    ├── fish.js            # jQuery/AJAX logic and local state management
+│    ├── index.html         # Main User Interface (SPA)
+│    └── styles.css         # Application styling
+├── .gitignore             # Configuration to exclude venv and local DB from Git
+├── bigprojectdb           # SQLite database file (local only)
+├── requirements.txt       # Python dependencies for deployment
 ├── createschema.py        # Script to initialize/reset the database table
 ├── dbconfig.py            # Database configuration settings
 ├── fishDAO.py             # Data Access Object (Database logic abstraction)
@@ -56,6 +57,14 @@ The application supports visual logging by integrating external image hosting se
 * **Lightweight Persistence:** Stores only the image URL in the database, keeping the SQLite file size small and efficient.
 * **Referrer Policy Optimization:** Implements a no-referrer meta-tag to ensure reliable image rendering across different hosting platforms.
 * **Visual Data Validation:** Provides immediate visual confirmation of catches within the main table, enhancing the user's logbook experience.
+---
+
+##  System Architecture
+The application follows a standard N-Tier architecture:
+1.  **Presentation Layer:** HTML5/CSS3 and jQuery handles user interaction and UI updates via AJAX.
+2.  **Service Layer:** Flask (`server.py`) provides a RESTful API and routes requests to the DAO.
+3.  **Data Access Layer:** `fishDAO.py` abstracts all SQL operations using the Data Access Object pattern.
+4.  **Data Layer:** SQLite provides a persistent, file-based relational database.
 ---
 
 ## Database Schema
